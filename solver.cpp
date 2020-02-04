@@ -18,16 +18,21 @@ vector<int> listAllRelatedSquares(grid puzzle, int x, int y){
 	}
 }
 
-vector<int> stringToIntHelper(string input){
+vector<int> stringToIntHelper(string input, bool& solution){
 	vector<int> intReturnValues;
+	bool 
 	for(int i=0; i<input.length(); i++){
 		if(input[i]=='.'){
+			solution = false
 			intReturnValues.push_back(0);
 		}else{
 			intReturnValues.push_back('0'-input[i]);
 		}
 	}
 }
+
+vector<vector<int>> oneDemToTwoDemHelper(vector<int> 
+
 
 bool importSudokus(std::string path){
 	/* Function for importing sudokus from a file.
@@ -41,11 +46,17 @@ bool importSudokus(std::string path){
 	if(puzzleFile.is_open()){
 		while(getline(puzzleFile, line)){
 			//convert string line to int line with 0 replacing .
-			vector<int> sudoNumbers = stringToIntHelper(line)
 			//seperate lines into rows and col
-			//add to puzzle list
-
-			puzzles.push_back();
+			bool solution = true;
+			vector<vector<int>> sudoNumbers = oneDemToTwoDemHelper(
+				stringToIntHelper(line, solution)
+			)
+			//add to puzzle list(switch depending on if its a solution or not)
+			if(solution){
+				solutions.push_back(sudoNumbers);
+			}else{
+				puzzles.push_back(sudoNumbers);
+			}
 		}
 	}
 
