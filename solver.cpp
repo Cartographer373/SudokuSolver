@@ -10,16 +10,6 @@ using namespace std;
 
 typedef vector<vector<int>> grid;
 
-/*
-vector<int> listAllRelatedSquares(grid puzzle, int x, int y){
-	// List all values that are releted to the given square
-	set<int> usedNumbers;
-	for(int i=0; i<9; i++){
-		usedNumbers.insert(puzzle[x][i]);
-		usedNumbers.insert(puzzle[i][y]);
-	}
-}
-*/
 vector<int> stringToIntHelper(string input){
 	vector<int> intReturnValues;
 	for(int i=0; i<input.length(); i++){
